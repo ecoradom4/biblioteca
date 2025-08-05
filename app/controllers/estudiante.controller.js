@@ -13,10 +13,11 @@ exports.create = (req, res) => {
   }
 
   // Crear estudiante
-  const estudiante = {
+   const estudiante = {
     nombre: req.body.nombre,
+    apellido: req.body.apellido,
     carnet: req.body.carnet,
-    correo: req.body.correo
+    email: req.body.email
   };
 
   // Guardar estudiante en la base de datos
