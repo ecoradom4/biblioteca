@@ -30,9 +30,9 @@ app.get("/", (req, res) => {
 });
 
 // Importar y configurar todas las rutas
-require("./routes/libro.routes")(app);
-require("./routes/estudiante.routes")(app);
-require("./routes/prestamo.routes")(app);
+require("./app/routes/libro.routes")(app);
+require("./app/routes/estudiante.routes")(app);
+require("./app/routes/prestamo.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8081;
