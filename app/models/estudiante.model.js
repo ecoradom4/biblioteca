@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const Usuario = sequelize.define('Usuario', {
-    id_usuario: {
+  const Estudiante = sequelize.define('Estudiante', {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
@@ -13,26 +13,23 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    email: {
+    carnet: {
       type: DataTypes.STRING,
       unique: true,
       allowNull: false
     },
-    estado: {
-      type: DataTypes.ENUM('activo', 'inactivo', 'suspendido'),
-      defaultValue: 'activo'
+    email: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false,
+      validate: {
+        isEmail: true
+      }
     }
   }, {
-    tableName: 'usuarios',
+    tableName: 'estudiantes',
     timestamps: false
   });
 
-  Usuario.associate = function(models) {
-    Usuario.hasMany(models.Prestamo, {
-      foreignKey: 'id_usuario',
-      as: 'prestamos'
-    });
-  };
-
-  return Usuario;
+  return Estudiante;
 };
