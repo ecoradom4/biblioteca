@@ -34,7 +34,7 @@ exports.create = (req, res) => {
 // Obtener todos los estudiantes
 exports.findAll = (req, res) => {
   const nombre = req.query.nombre;
-  const condition = nombre ? { nombre: { [Op.iLike]: `%${nombre}%` } : null;
+  const condition = nombre ? { nombre: { [Op.iLike]: `%${nombre}%` } }: null;
 
   Estudiante.findAll({ where: condition })
     .then(data => {

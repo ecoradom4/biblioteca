@@ -36,7 +36,7 @@ exports.create = (req, res) => {
 // Obtener todos los libros
 exports.findAll = (req, res) => {
   const titulo = req.query.titulo;
-  const condition = titulo ? { titulo: { [Op.iLike]: `%${titulo}%` } : null;
+  const condition = titulo ? { titulo: { [Op.iLike]: `%${titulo}%` } }: null;
 
   Libro.findAll({ where: condition })
     .then(data => {
